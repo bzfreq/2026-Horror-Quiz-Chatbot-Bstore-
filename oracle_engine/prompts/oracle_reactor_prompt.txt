@@ -1,0 +1,4 @@
+# Oracle Reactor Prompt
+# This prompt will be used to generate Oracle's atmospheric reactions
+# Content will be added in next session
+

@@ -1,0 +1,8 @@
+Title: Hereditary
+Year: 2018
+Director: Ari Aster
+Genre: Drama, Horror, Mystery
+IMDB_Rating: 7.3
+
+Plot Summary:
+A grieving family is haunted by tragic and disturbing occurrences.

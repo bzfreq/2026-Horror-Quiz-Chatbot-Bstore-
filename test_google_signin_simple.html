@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🩸 Google OAuth Debug Tool</title>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Courier New', monospace;
+      background: linear-gradient(135deg, #1a0000, #000000);
+      color: #00ff00;
+      padding: 20px;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: rgba(0, 0, 0, 0.8);
+      border: 3px solid #ff0000;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
+    }
+    h1 {
+      color: #ff0000;
+      text-align: center;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      text-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+    .section {
+      background: rgba(255, 0, 0, 0.1);
+      border: 2px solid #ff0000;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 20px 0;
+    }
+    .section h2 {
+      color: #ff0000;
+      margin-bottom: 15px;
+      font-size: 1.3em;
+    }
+    .status {
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    .success { background: #0d4d0d; border: 2px solid #0f0; color: #0f0; }
+    .error { background: #4d0d0d; border: 2px solid #f00; color: #f00; }
+    .warning { background: #4d4d0d; border: 2px solid #ff0; color: #ff0; }
+    .info { background: #1a3d5c; border: 2px solid #00bfff; color: #00bfff; }
+    #g_id_signin {
+      display: flex;
+      justify-content: center;
+      margin: 30px 0;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+    }
+    .log-entry {
+      padding: 8px;
+      margin: 5px 0;
+      border-left: 3px solid;
+      font-size: 0.9em;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 3px;
+    }
+    .log-success { border-color: #0f0; color: #0f0; }
+    .log-error { border-color: #f00; color: #f00; }
+    .log-warning { border-color: #ff0; color: #ff0; }
+    .log-info { border-color: #00bfff; color: #00bffF; }
+    .console {
+      background: #000;
+      border: 2px solid #0f0;
+      border-radius: 5px;
+      padding: 15px;
+      max-height: 400px;
+      overflow-y: auto;
+      font-size: 0.85em;
+    }
+    code {
+      background: #000;
+      padding: 2px 6px;
+      border-radius: 3px;
+      color: #ff0;
+    }
+    .btn {
+      background: #ff0000;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1em;
+      margin: 5px;
+      transition: all 0.3s;
+    }
+    .btn:hover {
+      background: #cc0000;
+      box-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
+    }
+    .highlight { color: #ff0; font-weight: bold; }
+    pre {
+      background: #000;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+      color: #0f0;
+      border: 1px solid #0f0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🩸 GOOGLE OAUTH DEBUG TOOL 🩸</h1>
+    
+    <!-- STATUS SECTION -->
+    <div class="section">
+      <h2>📊 CURRENT STATUS</h2>
+      <div id="main-status" class="status info">🔄 Initializing diagnostics...</div>
+    </div>
+
+    <!-- CONFIGURATION INFO -->
+    <div class="section">
+      <h2>⚙️ CONFIGURATION</h2>
+      <div class="info-grid">
+        <p><strong>Client ID:</strong> <code id="client-id-display">Loading...</code></p>
+        <p><strong>Current URL:</strong> <code id="current-url">Loading...</code></p>
+        <p><strong>Origin:</strong> <code id="current-origin">Loading...</code></p>
+        <p><strong>Library Loaded:</strong> <span id="lib-status" class="highlight">Checking...</span></p>
+      </div>
+    </div>
+
+    <!-- SIGN-IN BUTTON -->
+    <div class="section">
+      <h2>🔐 SIGN-IN TEST</h2>
+      <div id="g_id_signin"></div>
+      <div style="text-align: center; margin-top: 10px;">
+        <button class="btn" onclick="forceReload()">🔄 Reload Page</button>
+        <button class="btn" onclick="clearAllData()">🧹 Clear All Data</button>
+        <button class="btn" onclick="testPopup()">🪟 Test Popup</button>
+      </div>
+    </div>
+
+    <!-- CONSOLE LOG -->
+    <div class="section">
+      <h2>📝 CONSOLE LOG</h2>
+      <div class="console" id="console-log">
+        <div class="log-info">Waiting for events...</div>
+      </div>
+    </div>
+
+    <!-- TROUBLESHOOTING -->
+    <div class="section">
+      <h2>🔧 TROUBLESHOOTING CHECKLIST</h2>
+      <div id="checklist">
+        <div id="check-library" class="status info">⏳ Checking Google library...</div>
+        <div id="check-origin" class="status info">⏳ Checking origin...</div>
+        <div id="check-popup" class="status info">⏳ Checking popup blockers...</div>
+        <div id="check-console" class="status info">⏳ Checking console errors...</div>
+      </div>
+    </div>
+
+    <!-- EXPECTED CONFIGURATION -->
+    <div class="section">
+      <h2>✅ REQUIRED GOOGLE CLOUD CONSOLE SETTINGS</h2>
+      <p style="margin-bottom: 10px;">Go to: <a href="https://console.cloud.google.com/apis/credentials" target="_blank" style="color: #00bfff;">Google Cloud Console → Credentials</a></p>
+      
+      <h3 style="color: #ff0000; margin: 15px 0 10px 0;">Authorized JavaScript origins:</h3>
+      <pre>http://localhost:5000
+http://127.0.0.1:5000</pre>
+
+      <h3 style="color: #ff0000; margin: 15px 0 10px 0;">Authorized redirect URIs:</h3>
+      <pre>http://localhost:5000
+http://127.0.0.1:5000
+http://localhost:5000/oauth2callback
+http://127.0.0.1:5000/oauth2callback</pre>
+
+      <div class="status warning" style="margin-top: 15px;">
+        ⚠️ After making changes in Google Cloud Console, wait 5 minutes for them to take effect!
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Configuration
+    const CLIENT_ID = '383630092112-5vqj924hq2n44tjk1gpb3bisokfab50m.apps.googleusercontent.com';
+    const consoleLog = document.getElementById('console-log');
+    let logCount = 0;
+
+    // Logging function
+    function log(message, type = 'info') {
+      logCount++;
+      const timestamp = new Date().toLocaleTimeString();
+      const entry = document.createElement('div');
+      entry.className = `log-entry log-${type}`;
+      entry.innerHTML = `<strong>[${timestamp}]</strong> ${message}`;
+      consoleLog.appendChild(entry);
+      consoleLog.scrollTop = consoleLog.scrollHeight;
+      console.log(`[${type.toUpperCase()}] ${message}`);
+      
+      // Update main status
+      if (type === 'error') {
+        document.getElementById('main-status').className = 'status error';
+        document.getElementById('main-status').textContent = '❌ Error detected! Check log below.';
+      }
+    }
+
+    // Initialize page
+    window.addEventListener('load', function() {
+      // Display configuration
+      document.getElementById('client-id-display').textContent = CLIENT_ID;
+      document.getElementById('current-url').textContent = window.location.href;
+      document.getElementById('current-origin').textContent = window.location.origin;
+      
+      log('🚀 Page loaded', 'info');
+      log(`📍 Origin: ${window.location.origin}`, 'info');
+      log(`🔑 Client ID: ${CLIENT_ID}`, 'info');
+      
+      // Run checks
+      runDiagnostics();
+    });
+
+    // Run all diagnostic checks
+    function runDiagnostics() {
+      setTimeout(() => {
+        // Check 1: Google library
+        if (typeof google !== 'undefined' && google.accounts) {
+          log('✅ Google Sign-In library loaded successfully', 'success');
+          document.getElementById('lib-status').textContent = '✅ Loaded';
+          document.getElementById('check-library').className = 'status success';
+          document.getElementById('check-library').textContent = '✅ Google library loaded';
+          initializeGoogleSignIn();
+        } else {
+          log('❌ Google Sign-In library failed to load', 'error');
+          document.getElementById('lib-status').textContent = '❌ Failed';
+          document.getElementById('check-library').className = 'status error';
+          document.getElementById('check-library').textContent = '❌ Google library not loaded - Check internet connection';
+        }
+
+        // Check 2: Origin validation
+        const origin = window.location.origin;
+        if (origin === 'http://localhost:5000' || origin === 'http://127.0.0.1:5000') {
+          log(`✅ Origin is correct: ${origin}`, 'success');
+          document.getElementById('check-origin').className = 'status success';
+          document.getElementById('check-origin').textContent = `✅ Origin OK: ${origin}`;
+        } else {
+          log(`⚠️ Origin might cause issues: ${origin}`, 'warning');
+          log('Expected: http://localhost:5000 or http://127.0.0.1:5000', 'warning');
+          document.getElementById('check-origin').className = 'status warning';
+          document.getElementById('check-origin').textContent = `⚠️ Unexpected origin: ${origin}`;
+        }
+
+        // Check 3: Console errors
+        document.getElementById('check-console').className = 'status success';
+        document.getElementById('check-console').textContent = '✅ No initial console errors';
+
+        // Check 4: Popup test (manual)
+        document.getElementById('check-popup').className = 'status warning';
+        document.getElementById('check-popup').textContent = '⚠️ Click "Test Popup" button to check';
+      }, 1500);
+    }
+
+    // Initialize Google Sign-In
+    function initializeGoogleSignIn() {
+      try {
+        log('🔧 Initializing Google Sign-In...', 'info');
+        
+        google.accounts.id.initialize({
+          client_id: CLIENT_ID,
+          callback: handleCredentialResponse,
+          auto_select: false,
+          cancel_on_tap_outside: true,
+          ux_mode: 'popup',
+          error_callback: handleError
+        });
+        
+        google.accounts.id.renderButton(
+          document.getElementById("g_id_signin"),
+          { 
+            theme: "filled_black", 
+            size: "large", 
+            text: "signin_with",
+            width: 250
+          }
+        );
+
+        log('✅ Google Sign-In initialized successfully', 'success');
+        document.getElementById('main-status').className = 'status success';
+        document.getElementById('main-status').textContent = '✅ Ready! Click the button above to test sign-in.';
+        
+      } catch (error) {
+        log(`❌ Initialization error: ${error.message}`, 'error');
+        log(`Stack: ${error.stack}`, 'error');
+      }
+    }
+
+    // Handle successful sign-in
+    function handleCredentialResponse(response) {
+      log('🎉 handleCredentialResponse called!', 'success');
+      log('📦 Response received', 'info');
+      
+      try {
+        if (!response) {
+          log('❌ Response is null or undefined', 'error');
+          return;
+        }
+
+        if (!response.credential) {
+          log('❌ No credential in response', 'error');
+          log(`Response keys: ${Object.keys(response).join(', ')}`, 'error');
+          return;
+        }
+
+        log('✅ Credential received', 'success');
+        
+        // Decode JWT
+        const tokenParts = response.credential.split('.');
+        const base64Url = tokenParts[1];
+        const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        const jsonPayload = decodeURIComponent(
+          atob(base64).split('').map(c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)).join('')
+        );
+        
+        const userObject = JSON.parse(jsonPayload);
+        log('✅ JWT decoded successfully', 'success');
+        log(`👤 User: ${userObject.name}`, 'success');
+        log(`📧 Email: ${userObject.email}`, 'success');
+        log(`🆔 ID: ${userObject.sub}`, 'success');
+
+        document.getElementById('main-status').className = 'status success';
+        document.getElementById('main-status').innerHTML = `
+          <div>🎉 <strong>SUCCESS!</strong> Signed in as <strong>${userObject.name}</strong></div>
+          <div style="margin-top: 10px; font-size: 0.9em;">
+            ✅ Google OAuth is working correctly!<br>
+            ✅ You can now use this in your Horror Oracle app!
+          </div>
+        `;
+
+        alert(`✅ SUCCESS!\n\nSigned in as: ${userObject.name}\n\nGoogle OAuth is working!`);
+        
+      } catch (error) {
+        log(`❌ Error processing response: ${error.message}`, 'error');
+        log(`Stack: ${error.stack}`, 'error');
+      }
+    }
+
+    // Handle errors
+    function handleError(error) {
+      log('❌ Google Sign-In Error', 'error');
+      log(`Error type: ${error.type || 'unknown'}`, 'error');
+      log(`Error message: ${error.message || 'No message'}`, 'error');
+      
+      document.getElementById('main-status').className = 'status error';
+      
+      if (error.type === 'popup_closed') {
+        log('⚠️ User closed the popup window', 'warning');
+        document.getElementById('main-status').textContent = '⚠️ Popup closed - Try again';
+      } else if (error.type === 'popup_failed_to_open') {
+        log('❌ Popup blocked by browser', 'error');
+        document.getElementById('main-status').textContent = '❌ Popup blocked! Disable pop-up blocker';
+        document.getElementById('check-popup').className = 'status error';
+        document.getElementById('check-popup').textContent = '❌ Popup blocker detected!';
+      } else if (error.type === 'idpiframe_initialization_failed') {
+        log('❌ Configuration error - Check Google Cloud Console settings', 'error');
+        document.getElementById('main-status').innerHTML = `
+          <strong>❌ Configuration Error!</strong><br>
+          Check your Google Cloud Console settings (see below)
+        `;
+      } else {
+        document.getElementById('main-status').textContent = `❌ Error: ${error.type || 'Unknown'}`;
+      }
+    }
+
+    // Utility functions
+    function forceReload() {
+      log('🔄 Reloading page...', 'info');
+      location.reload();
+    }
+
+    function clearAllData() {
+      log('🧹 Clearing all localStorage and cookies...', 'warning');
+      localStorage.clear();
+      sessionStorage.clear();
+      log('✅ Data cleared', 'success');
+      alert('All data cleared! Reloading page...');
+      setTimeout(() => location.reload(), 1000);
+    }
+
+    function testPopup() {
+      log('🪟 Testing popup capability...', 'info');
+      try {
+        const popup = window.open('about:blank', 'test', 'width=400,height=400');
+        if (popup) {
+          log('✅ Popup opened successfully', 'success');
+          document.getElementById('check-popup').className = 'status success';
+          document.getElementById('check-popup').textContent = '✅ Popups are allowed';
+          setTimeout(() => popup.close(), 1000);
+        } else {
+          log('❌ Popup blocked', 'error');
+          document.getElementById('check-popup').className = 'status error';
+          document.getElementById('check-popup').textContent = '❌ Popups are BLOCKED - Disable blocker!';
+        }
+      } catch (e) {
+        log(`❌ Popup test failed: ${e.message}`, 'error');
+        document.getElementById('check-popup').className = 'status error';
+        document.getElementById('check-popup').textContent = '❌ Popup test failed';
+      }
+    }
+
+    // Capture console errors
+    window.addEventListener('error', function(e) {
+      log(`❌ JavaScript Error: ${e.message}`, 'error');
+      log(`At: ${e.filename}:${e.lineno}`, 'error');
+    });
+  </script>
+</body>
+</html>
+

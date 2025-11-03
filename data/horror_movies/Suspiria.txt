@@ -1,0 +1,8 @@
+Title: Suspiria
+Year: 1977
+Director: Dario Argento
+Genre: Horror
+IMDB_Rating: 7.3
+
+Plot Summary:
+An American newcomer to a prestigious German ballet academy comes to realize that the school is a front for something sinister amid a series of grisly murders.

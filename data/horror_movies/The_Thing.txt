@@ -1,0 +1,8 @@
+Title: The Thing
+Year: 1982
+Director: John Carpenter
+Genre: Horror, Mystery, Sci-Fi
+IMDB_Rating: 8.2
+
+Plot Summary:
+A research team in Antarctica is hunted by a shape-shifting alien that assumes the appearance of its victims.

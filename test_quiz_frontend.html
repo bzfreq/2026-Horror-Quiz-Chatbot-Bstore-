@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Diagnostic Test</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background: #1a1a1a;
+            color: #0f0;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #f00;
+            text-align: center;
+        }
+        .test-section {
+            background: #222;
+            border: 2px solid #0f0;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .success {
+            color: #0f0;
+        }
+        .error {
+            color: #f00;
+        }
+        .warning {
+            color: #ff0;
+        }
+        button {
+            background: #ff0000;
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 10px 5px;
+            font-weight: bold;
+        }
+        button:hover {
+            background: #cc0000;
+        }
+        button:disabled {
+            background: #666;
+            cursor: not-allowed;
+        }
+        pre {
+            background: #000;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .log {
+            background: #000;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>🩸 Horror Quiz Diagnostic Test 🩸</h1>
+    
+    <div class="test-section">
+        <h2>1. Backend Connection Test</h2>
+        <button onclick="testBackendConnection()">Test Backend Connection</button>
+        <div id="backend-result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>2. Quiz API Test</h2>
+        <button onclick="testQuizAPI()">Test Quiz API</button>
+        <div id="quiz-api-result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>3. Start Full Quiz Flow</h2>
+        <button onclick="startFullQuiz()">Start Quiz (Like in Main App)</button>
+        <div id="quiz-flow-result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>4. JavaScript Console Log</h2>
+        <div id="console-log" class="log">Console messages will appear here...</div>
+    </div>
+    
+    <div class="test-section">
+        <h2>5. Quiz Questions Display</h2>
+        <div id="questions-display"></div>
+    </div>
+
+    <script>
+        const API_BASE = 'http://localhost:5000';
+        const consoleLog = document.getElementById('console-log');
+        
+        // Capture console logs
+        const originalLog = console.log;
+        const originalError = console.error;
+        
+        console.log = function(...args) {
+            originalLog.apply(console, args);
+            const msg = args.map(a => typeof a === 'object' ? JSON.stringify(a, null, 2) : a).join(' ');
+            consoleLog.innerHTML += `<div class="success">[LOG] ${msg}</div>`;
+            consoleLog.scrollTop = consoleLog.scrollHeight;
+        };
+        
+        console.error = function(...args) {
+            originalError.apply(console, args);
+            const msg = args.map(a => typeof a === 'object' ? JSON.stringify(a, null, 2) : a).join(' ');
+            consoleLog.innerHTML += `<div class="error">[ERROR] ${msg}</div>`;
+            consoleLog.scrollTop = consoleLog.scrollHeight;
+        };
+        
+        // Test 1: Backend Connection
+        async function testBackendConnection() {
+            const resultDiv = document.getElementById('backend-result');
+            resultDiv.innerHTML = '<p class="warning">Testing backend connection...</p>';
+            
+            try {
+                const response = await fetch(`${API_BASE}/`);
+                if (response.ok) {
+                    resultDiv.innerHTML = '<p class="success">✅ Backend is running!</p>';
+                    console.log('Backend connection successful');
+                } else {
+                    resultDiv.innerHTML = `<p class="error">❌ Backend returned status: ${response.status}</p>`;
+                    console.error('Backend returned error status:', response.status);
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `<p class="error">❌ Cannot connect to backend: ${error.message}</p>
+                    <p>Make sure Flask server is running: <code>python horror.py</code></p>`;
+                console.error('Backend connection error:', error);
+            }
+        }
+        
+        // Test 2: Quiz API
+        async function testQuizAPI() {
+            const resultDiv = document.getElementById('quiz-api-result');
+            resultDiv.innerHTML = '<p class="warning">Testing quiz API...</p>';
+            
+            try {
+                console.log('Calling /api/start_quiz...');
+                const response = await fetch(`${API_BASE}/api/start_quiz`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ userId: 'test_user_diagnostic' })
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                const data = await response.json();
+                console.log('Quiz API response:', data);
+                
+                resultDiv.innerHTML = `
+                    <p class="success">✅ Quiz API is working!</p>
+                    <pre>${JSON.stringify(data, null, 2).substring(0, 500)}...</pre>
+                    <p><strong>Room:</strong> ${data.room}</p>
+                    <p><strong>Theme:</strong> ${data.theme}</p>
+                    <p><strong>Difficulty:</strong> ${data.difficulty}</p>
+                    <p><strong>Questions:</strong> ${data.questions?.length || 0}</p>
+                `;
+                
+                // Display questions
+                if (data.questions && data.questions.length > 0) {
+                    displayQuestions(data.questions);
+                }
+                
+            } catch (error) {
+                resultDiv.innerHTML = `<p class="error">❌ Quiz API error: ${error.message}</p>`;
+                console.error('Quiz API error:', error);
+            }
+        }
+        
+        // Test 3: Full Quiz Flow
+        async function startFullQuiz() {
+            const resultDiv = document.getElementById('quiz-flow-result');
+            resultDiv.innerHTML = '<p class="warning">Starting full quiz flow...</p>';
+            
+            try {
+                console.log('🔮 Starting full quiz flow...');
+                
+                // Step 1: Call API
+                console.log('Step 1: Calling quiz API...');
+                const response = await fetch(`${API_BASE}/api/start_quiz`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 
+                        userId: 'test_flow_user',
+                        force_new: true
+                    })
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+                
+                const quizData = await response.json();
+                console.log('Step 2: Received quiz data:', quizData);
+                
+                // Step 3: Display quiz
+                console.log('Step 3: Displaying quiz...');
+                resultDiv.innerHTML = `
+                    <p class="success">✅ Full quiz flow completed!</p>
+                    <h3>${quizData.room}</h3>
+                    <p>${quizData.intro}</p>
+                    <p><strong>Theme:</strong> ${quizData.theme}</p>
+                    <p><strong>Difficulty:</strong> ${quizData.difficulty}</p>
+                    <p><strong>Questions loaded:</strong> ${quizData.questions?.length || 0}</p>
+                `;
+                
+                // Display questions
+                if (quizData.questions && quizData.questions.length > 0) {
+                    displayQuestions(quizData.questions);
+                }
+                
+                console.log('✅ Quiz flow test complete!');
+                
+            } catch (error) {
+                resultDiv.innerHTML = `<p class="error">❌ Quiz flow error: ${error.message}</p>`;
+                console.error('Quiz flow error:', error);
+            }
+        }
+        
+        // Display questions
+        function displayQuestions(questions) {
+            const displayDiv = document.getElementById('questions-display');
+            let html = '<h3>Quiz Questions:</h3>';
+            
+            questions.forEach((q, index) => {
+                html += `
+                    <div style="background: #000; padding: 15px; margin: 10px 0; border-radius: 5px;">
+                        <h4 class="success">Question ${index + 1}:</h4>
+                        <p>${q.question}</p>
+                        <ul>
+                            ${q.options.map((opt, i) => `<li>${opt}</li>`).join('')}
+                        </ul>
+                        <p class="warning">Correct Answer: ${q.options[q.correct_index]}</p>
+                    </div>
+                `;
+            });
+            
+            displayDiv.innerHTML = html;
+        }
+        
+        // Auto-test on load
+        window.addEventListener('load', () => {
+            console.log('Diagnostic page loaded');
+            console.log('API Base:', API_BASE);
+        });
+    </script>
+</body>
+</html>
+

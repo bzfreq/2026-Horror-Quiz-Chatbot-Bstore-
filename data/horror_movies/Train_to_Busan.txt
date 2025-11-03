@@ -1,0 +1,8 @@
+Title: Train to Busan
+Year: 2016
+Director: Yeon Sang-ho
+Genre: Action, Horror, Thriller
+IMDB_Rating: 7.6
+
+Plot Summary:
+While a zombie virus breaks out in South Korea, passengers struggle to survive on the train from Seoul to Busan.

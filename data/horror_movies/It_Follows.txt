@@ -1,0 +1,8 @@
+Title: It Follows
+Year: 2014
+Director: David Robert Mitchell
+Genre: Horror, Mystery, Thriller
+IMDB_Rating: 6.8
+
+Plot Summary:
+A young woman is followed by an unknown supernatural force after a sexual encounter.

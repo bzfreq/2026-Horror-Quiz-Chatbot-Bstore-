@@ -1,0 +1,8 @@
+Title: The Omen
+Year: 1976
+Director: Richard Donner
+Genre: Horror, Mystery
+IMDB_Rating: 7.5
+
+Plot Summary:
+Mysterious deaths surround an American ambassador. Could the child that he is raising actually be the Antichrist? The Devil's own son?

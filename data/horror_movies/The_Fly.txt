@@ -1,0 +1,8 @@
+Title: The Fly
+Year: 1986
+Director: David Cronenberg
+Genre: Drama, Horror, Sci-Fi
+IMDB_Rating: 7.6
+
+Plot Summary:
+A brilliant but eccentric scientist begins to transform into a giant man/fly hybrid after one of his experiments goes horribly wrong.

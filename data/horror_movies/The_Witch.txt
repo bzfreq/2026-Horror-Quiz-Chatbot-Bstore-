@@ -1,0 +1,8 @@
+Title: The Witch
+Year: 2015
+Director: Robert Eggers
+Genre: Drama, Fantasy, Horror
+IMDB_Rating: 7.0
+
+Plot Summary:
+An isolated Puritan family in 1630s New England comes unraveled by the forces of witchcraft and possession.

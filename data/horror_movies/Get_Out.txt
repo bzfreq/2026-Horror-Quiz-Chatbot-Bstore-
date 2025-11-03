@@ -1,0 +1,8 @@
+Title: Get Out
+Year: 2017
+Director: Jordan Peele
+Genre: Horror, Mystery, Thriller
+IMDB_Rating: 7.8
+
+Plot Summary:
+A young African-American visits his white girlfriend's parents for the weekend, where his simmering uneasiness about their reception of him eventually reaches a boiling point.

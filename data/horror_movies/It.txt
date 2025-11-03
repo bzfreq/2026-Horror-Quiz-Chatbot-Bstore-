@@ -1,0 +1,8 @@
+Title: It
+Year: 2017
+Director: Andy Muschietti
+Genre: Horror
+IMDB_Rating: 7.3
+
+Plot Summary:
+In the summer of 1989, a group of bullied kids band together to destroy a shape-shifting monster, which disguises itself as a clown and preys on the children of Derry, their small Maine town.

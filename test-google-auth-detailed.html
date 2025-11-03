@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Auth Diagnostic - Horror Oracle</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a0000 0%, #000000 100%);
+            color: #e0e0e0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(30, 0, 0, 0.8);
+            border: 2px solid #8b0000;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.3);
+        }
+        
+        h1 {
+            color: #ff0000;
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+        }
+        
+        .status {
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border-left: 4px solid;
+        }
+        
+        .status.success {
+            background: rgba(0, 100, 0, 0.2);
+            border-color: #00ff00;
+            color: #00ff00;
+        }
+        
+        .status.error {
+            background: rgba(139, 0, 0, 0.2);
+            border-color: #ff0000;
+            color: #ff6666;
+        }
+        
+        .status.warning {
+            background: rgba(139, 69, 0, 0.2);
+            border-color: #ffa500;
+            color: #ffaa00;
+        }
+        
+        .status.info {
+            background: rgba(0, 0, 139, 0.2);
+            border-color: #4444ff;
+            color: #6666ff;
+        }
+        
+        .icon {
+            font-size: 1.2em;
+            margin-right: 10px;
+        }
+        
+        #login-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+        }
+        
+        .log-entry {
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            padding: 5px 10px;
+            margin: 5px 0;
+            background: rgba(0, 0, 0, 0.5);
+            border-left: 3px solid #444;
+            border-radius: 3px;
+        }
+        
+        .log-entry.success {
+            border-color: #00ff00;
+            color: #00ff00;
+        }
+        
+        .log-entry.error {
+            border-color: #ff0000;
+            color: #ff6666;
+        }
+        
+        .log-entry.info {
+            border-color: #4444ff;
+            color: #6666ff;
+        }
+        
+        #diagnostic-info {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+        }
+        
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px;
+            margin: 5px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 3px;
+        }
+        
+        .info-label {
+            font-weight: bold;
+            color: #ff6666;
+        }
+        
+        .info-value {
+            color: #aaaaaa;
+            word-break: break-all;
+        }
+        
+        button {
+            background: linear-gradient(135deg, #8b0000, #4a0000);
+            border: 2px solid #ff0000;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+        
+        button:hover {
+            background: linear-gradient(135deg, #ff0000, #8b0000);
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+        }
+        
+        .solution-box {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(139, 0, 0, 0.2);
+            border: 2px dashed #ff6666;
+            border-radius: 5px;
+        }
+        
+        .solution-box h3 {
+            color: #ff6666;
+            margin-bottom: 10px;
+        }
+        
+        .solution-box ol {
+            margin-left: 20px;
+            line-height: 1.8;
+        }
+        
+        .solution-box li {
+            margin: 5px 0;
+        }
+        
+        .solution-box a {
+            color: #66aaff;
+            text-decoration: none;
+        }
+        
+        .solution-box a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🩸 Google Auth Diagnostic Tool 🩸</h1>
+        
+        <div id="status-container">
+            <div class="status info">
+                <span class="icon">ℹ️</span>
+                <strong>Initializing diagnostic checks...</strong>
+            </div>
+        </div>
+        
+        <div id="login-container">
+            <h2 style="color: #ff6666; margin-bottom: 15px;">Test Google Sign-In</h2>
+            <div id="google-signin-button"></div>
+            <p style="margin-top: 10px; color: #888; font-size: 0.9em;">
+                Click the button above to test authentication
+            </p>
+        </div>
+        
+        <div id="log-container">
+            <h3 style="color: #ff6666; margin-bottom: 10px;">🔍 Event Log</h3>
+            <div id="logs"></div>
+        </div>
+        
+        <div id="diagnostic-info">
+            <h3 style="color: #ff6666; margin-bottom: 15px;">📊 Configuration Info</h3>
+            <div class="info-item">
+                <span class="info-label">Client ID:</span>
+                <span class="info-value" id="client-id-display">Loading...</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Current Origin:</span>
+                <span class="info-value" id="origin-display">Loading...</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Google Library Status:</span>
+                <span class="info-value" id="library-status">Loading...</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Browser:</span>
+                <span class="info-value" id="browser-info">Loading...</span>
+            </div>
+        </div>
+        
+        <div id="solution-container" style="display: none;">
+            <div class="solution-box">
+                <h3>🔴 Fix Required</h3>
+                <div id="solution-content"></div>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 30px;">
+            <button onclick="location.reload()">🔄 Retry Test</button>
+            <button onclick="window.location.href='index.html'" style="margin-left: 10px;">🏠 Back to App</button>
+        </div>
+    </div>
+    
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script>
+        const CLIENT_ID = '383630092112-5vqj924hq2n44tjk1gpb3bisokfab50m.apps.googleusercontent.com';
+        let testsPassed = 0;
+        let testsFailed = 0;
+        
+        function log(message, type = 'info') {
+            const logsDiv = document.getElementById('logs');
+            const entry = document.createElement('div');
+            entry.className = `log-entry ${type}`;
+            entry.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+            logsDiv.appendChild(entry);
+            logsDiv.scrollTop = logsDiv.scrollHeight;
+        }
+        
+        function addStatus(message, type = 'info') {
+            const container = document.getElementById('status-container');
+            const status = document.createElement('div');
+            status.className = `status ${type}`;
+            
+            const icons = {
+                success: '✅',
+                error: '❌',
+                warning: '⚠️',
+                info: 'ℹ️'
+            };
+            
+            status.innerHTML = `<span class="icon">${icons[type]}</span><strong>${message}</strong>`;
+            container.appendChild(status);
+        }
+        
+        function showSolution(error) {
+            const solutionContainer = document.getElementById('solution-container');
+            const solutionContent = document.getElementById('solution-content');
+            
+            let solution = '<p>Based on the error, here\'s what you need to do:</p><ol>';
+            
+            if (error.includes('popup_closed')) {
+                solution += '<li>You closed the popup. Just try clicking the button again.</li>';
+            } else if (error.includes('access_denied') || error.includes('app had a problem')) {
+                solution += `
+                    <li>Go to <a href="https://console.cloud.google.com/apis/credentials/consent" target="_blank">Google Cloud Console OAuth Consent Screen</a></li>
+                    <li>Scroll down to <strong>"Test users"</strong> section</li>
+                    <li>Click <strong>"+ ADD USERS"</strong></li>
+                    <li>Enter the email address you're trying to sign in with</li>
+                    <li>Click <strong>SAVE</strong></li>
+                    <li><strong>Wait 3-5 minutes</strong> for changes to take effect</li>
+                    <li>Try signing in again in an incognito window</li>
+                `;
+            } else if (error.includes('popup_failed_to_open')) {
+                solution += '<li>Your browser blocked the popup. Check your popup blocker settings and allow popups for localhost.</li>';
+            } else if (error.includes('invalid_client')) {
+                solution += '<li>The Client ID is invalid. Check that it matches your Google Cloud Console configuration.</li>';
+            } else if (error.includes('idpiframe_initialization_failed')) {
+                solution += `
+                    <li>Go to <a href="https://console.cloud.google.com/apis/credentials" target="_blank">Google Cloud Console Credentials</a></li>
+                    <li>Click on your OAuth 2.0 Client ID</li>
+                    <li>Under "Authorized JavaScript origins", add:</li>
+                    <li style="margin-left: 20px;">• http://localhost:5000</li>
+                    <li style="margin-left: 20px;">• http://127.0.0.1:5000</li>
+                    <li>Click <strong>SAVE</strong></li>
+                    <li>Wait 5 minutes and try again</li>
+                `;
+            } else {
+                solution += '<li>Unknown error. Check the browser console (F12) for more details.</li>';
+                solution += '<li>Read GOOGLE_AUTH_FIX_FINAL.md for comprehensive troubleshooting.</li>';
+            }
+            
+            solution += '</ol>';
+            solutionContent.innerHTML = solution;
+            solutionContainer.style.display = 'block';
+        }
+        
+        window.onload = function() {
+            log('Starting diagnostic checks...', 'info');
+            
+            // Check 1: Display configuration info
+            document.getElementById('client-id-display').textContent = CLIENT_ID;
+            document.getElementById('origin-display').textContent = window.location.origin;
+            document.getElementById('browser-info').textContent = navigator.userAgent;
+            
+            // Check 2: Verify Google library loaded
+            setTimeout(() => {
+                if (typeof google === 'undefined' || !google.accounts) {
+                    log('❌ Google Sign-In library failed to load', 'error');
+                    addStatus('Google Sign-In library did NOT load', 'error');
+                    document.getElementById('library-status').textContent = '❌ Failed to load';
+                    testsFailed++;
+                    
+                    showSolution('idpiframe_initialization_failed');
+                } else {
+                    log('✅ Google Sign-In library loaded successfully', 'success');
+                    addStatus('Google Sign-In library loaded successfully', 'success');
+                    document.getElementById('library-status').textContent = '✅ Loaded';
+                    testsPassed++;
+                    
+                    // Initialize Google Sign-In
+                    initializeGoogleSignIn();
+                }
+            }, 2000);
+        };
+        
+        function initializeGoogleSignIn() {
+            log('Initializing Google Sign-In...', 'info');
+            
+            try {
+                google.accounts.id.initialize({
+                    client_id: CLIENT_ID,
+                    callback: handleCredentialResponse,
+                    auto_select: false,
+                    cancel_on_tap_outside: true,
+                    ux_mode: 'popup',
+                    error_callback: (error) => {
+                        log(`❌ ERROR: ${error.type || 'Unknown error'}`, 'error');
+                        log(`Error details: ${JSON.stringify(error)}`, 'error');
+                        addStatus(`Sign-in error: ${error.type || 'Unknown error'}`, 'error');
+                        testsFailed++;
+                        
+                        if (error.type) {
+                            showSolution(error.type);
+                        } else {
+                            showSolution('app had a problem');
+                        }
+                    }
+                });
+                
+                google.accounts.id.renderButton(
+                    document.getElementById('google-signin-button'),
+                    {
+                        theme: 'filled_black',
+                        size: 'large',
+                        text: 'signin_with',
+                        width: 300
+                    }
+                );
+                
+                log('✅ Google Sign-In initialized', 'success');
+                addStatus('Google Sign-In button rendered', 'success');
+                testsPassed++;
+                
+                log(`ℹ️ Current origin: ${window.location.origin}`, 'info');
+                log(`ℹ️ Ready to test! Click the button above.`, 'info');
+                
+            } catch (error) {
+                log(`❌ Initialization error: ${error.message}`, 'error');
+                addStatus(`Initialization failed: ${error.message}`, 'error');
+                testsFailed++;
+            }
+        }
+        
+        function handleCredentialResponse(response) {
+            log('🔐 Credential response received!', 'success');
+            
+            if (!response) {
+                log('❌ Response is null', 'error');
+                addStatus('Sign-in failed: No response from Google', 'error');
+                testsFailed++;
+                showSolution('app had a problem');
+                return;
+            }
+            
+            if (!response.credential) {
+                log('❌ No credential in response', 'error');
+                addStatus('Sign-in failed: Invalid response format', 'error');
+                testsFailed++;
+                showSolution('app had a problem');
+                return;
+            }
+            
+            log('📝 Decoding JWT token...', 'info');
+            
+            try {
+                const tokenParts = response.credential.split('.');
+                if (tokenParts.length !== 3) {
+                    throw new Error('Invalid JWT format');
+                }
+                
+                const base64Url = tokenParts[1];
+                const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+                const jsonPayload = decodeURIComponent(
+                    atob(base64).split('').map(c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)).join('')
+                );
+                
+                const userObject = JSON.parse(jsonPayload);
+                
+                log(`✅ Successfully decoded token!`, 'success');
+                log(`✅ User: ${userObject.name} (${userObject.email})`, 'success');
+                log(`✅ User ID: ${userObject.sub}`, 'success');
+                
+                addStatus(`✅ AUTHENTICATION SUCCESSFUL!`, 'success');
+                addStatus(`Welcome, ${userObject.name}!`, 'success');
+                testsPassed++;
+                
+                // Display user info
+                const loginContainer = document.getElementById('login-container');
+                loginContainer.innerHTML = `
+                    <h2 style="color: #00ff00; margin-bottom: 15px;">✅ Sign-In Successful!</h2>
+                    <div style="background: rgba(0, 100, 0, 0.2); padding: 20px; border-radius: 5px; border: 2px solid #00ff00;">
+                        <p style="font-size: 1.2em; margin: 10px 0;"><strong>Name:</strong> ${userObject.name}</p>
+                        <p style="margin: 10px 0;"><strong>Email:</strong> ${userObject.email}</p>
+                        <p style="margin: 10px 0; word-break: break-all;"><strong>User ID:</strong> ${userObject.sub}</p>
+                        <img src="${userObject.picture}" alt="Profile" style="border-radius: 50%; width: 80px; height: 80px; margin-top: 15px; border: 3px solid #00ff00;">
+                    </div>
+                    <p style="margin-top: 20px; color: #00ff00;">✅ Your Google authentication is working perfectly!</p>
+                `;
+                
+                log('✅ ALL TESTS PASSED! Authentication is working correctly.', 'success');
+                
+            } catch (error) {
+                log(`❌ Token decoding error: ${error.message}`, 'error');
+                addStatus(`Failed to decode user data: ${error.message}`, 'error');
+                testsFailed++;
+            }
+        }
+        
+        // Capture console errors
+        window.addEventListener('error', (event) => {
+            log(`❌ Global error: ${event.message}`, 'error');
+        });
+    </script>
+</body>
+</html>
+

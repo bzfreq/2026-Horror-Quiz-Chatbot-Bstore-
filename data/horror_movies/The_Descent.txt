@@ -1,0 +1,8 @@
+Title: The Descent
+Year: 2005
+Director: Neil Marshall
+Genre: Adventure, Horror, Thriller
+IMDB_Rating: 7.2
+
+Plot Summary:
+A caving expedition goes horribly wrong when six explorers become trapped and ultimately pursued by a strange breed of predators.

@@ -1,0 +1,108 @@
+🩸 HORROR ORACLE QUIZ - QUICK TEST 🩸
+
+THE FIX IS COMPLETE! Follow these steps to test:
+
+═══════════════════════════════════════════════════════════
+
+STEP 1: START BACKEND
+═══════════════════════════════════════════════════════════
+Run in terminal:
+    python horror.py
+
+Wait for:
+    "🩸 HORROR ORACLE AWAKENING... 🩸"
+    "Server running on http://localhost:5000"
+
+═══════════════════════════════════════════════════════════
+
+STEP 2: OPEN APPLICATION
+═══════════════════════════════════════════════════════════
+Open in browser:
+    http://localhost:5000
+    
+Or double-click:
+    index.html
+
+═══════════════════════════════════════════════════════════
+
+STEP 3: START QUIZ
+═══════════════════════════════════════════════════════════
+1. Look for the green glowing button: "Face Your Nightmares"
+2. Click it
+3. Modal should appear with:
+   - Room name
+   - Spooky intro text
+   - Fear meter
+   - Red "BEGIN THE TRIAL" button
+
+═══════════════════════════════════════════════════════════
+
+STEP 4: ANSWER QUESTIONS
+═══════════════════════════════════════════════════════════
+1. Click "BEGIN THE TRIAL"
+2. You'll see "Question 1 of 5"
+3. Click any of the 4 answer options
+4. Watch for feedback:
+   - ✅ Green = Correct
+   - ❌ Red = Wrong (also shows correct answer in green)
+5. Quiz auto-advances to next question
+6. Repeat for all 5 questions
+
+═══════════════════════════════════════════════════════════
+
+STEP 5: VIEW RESULTS
+═══════════════════════════════════════════════════════════
+After question 5:
+- See your score (X/5)
+- Read Oracle's reaction to your performance
+- Check updated fear level
+- View any rewards earned
+- Read atmospheric lore
+
+Buttons:
+- "NEXT TRIAL" → Start new quiz
+- "Return to Oracle" or X → Close quiz
+
+═══════════════════════════════════════════════════════════
+
+✅ WHAT TO EXPECT (ALL SHOULD WORK):
+═══════════════════════════════════════════════════════════
+✓ Button click opens modal
+✓ Intro screen displays
+✓ Questions appear one by one
+✓ All 4 options are visible and clickable
+✓ Clicking an option shows color feedback
+✓ Quiz advances automatically
+✓ Results screen appears after question 5
+✓ Can start new quiz or close
+
+═══════════════════════════════════════════════════════════
+
+🐛 IF SOMETHING DOESN'T WORK:
+═══════════════════════════════════════════════════════════
+1. Open browser console (F12)
+2. Look for error messages
+3. Check backend terminal for errors
+4. Read the detailed docs:
+   - QUIZ_FIX_SUMMARY.md
+   - VERIFICATION_COMPLETE.md
+
+═══════════════════════════════════════════════════════════
+
+📊 WHAT WAS FIXED:
+═══════════════════════════════════════════════════════════
+The backend was returning questions in this format:
+  { choices: [...], correct_answer: "..." }
+
+But the frontend expected:
+  { options: [...], correct: 0 }
+
+Added a mapping function to convert between formats.
+Now everything works! 🎉
+
+═══════════════════════════════════════════════════════════
+
+THE ORACLE AWAITS YOUR TRIAL... 🩸
+
+═══════════════════════════════════════════════════════════
+

@@ -1,0 +1,8 @@
+Title: The Conjuring
+Year: 2013
+Director: James Wan
+Genre: Horror, Mystery, Thriller
+IMDB_Rating: 7.5
+
+Plot Summary:
+Paranormal investigators Ed and Lorraine Warren work to help a family terrorized by a dark presence in their farmhouse.

@@ -1,0 +1,8 @@
+Title: Scream
+Year: 1996
+Director: Wes Craven
+Genre: Horror, Mystery
+IMDB_Rating: 7.4
+
+Plot Summary:
+In the small town of Woodsboro, California, a masked killer known as Ghostface begins murdering high school students, and a group of friends must use their knowledge of horror movies to unmask the killer.

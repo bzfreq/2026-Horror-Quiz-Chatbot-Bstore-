@@ -1,0 +1,8 @@
+Title: The Exorcist
+Year: 1973
+Director: William Friedkin
+Genre: Horror
+IMDB_Rating: 8.1
+
+Plot Summary:
+When a mysterious entity possesses a young girl, her mother seeks the help of two Catholic priests to save her life.

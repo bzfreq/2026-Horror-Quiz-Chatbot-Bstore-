@@ -1,0 +1,8 @@
+Title: Halloween
+Year: 1978
+Director: John Carpenter
+Genre: Horror, Thriller
+IMDB_Rating: 7.7
+
+Plot Summary:
+Fifteen years after murdering his sister on Halloween night 1963, Michael Myers escapes from a mental hospital and returns to the small town of Haddonfield, Illinois, to kill again.

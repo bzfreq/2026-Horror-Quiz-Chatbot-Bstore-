@@ -1,0 +1,8 @@
+Title: Pearl
+Year: 2022
+Director: Ti West
+Genre: Drama, Horror, Thriller
+IMDB_Rating: 7.0
+
+Plot Summary:
+In 1918, a young woman on the brink of madness pursues stardom in a desperate attempt to escape the drudgery, isolation, and lovelessness of life on her parents' farm.

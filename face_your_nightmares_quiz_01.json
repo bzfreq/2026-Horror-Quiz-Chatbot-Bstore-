@@ -1,0 +1,69 @@
+{
+  "chamber_name": "Face Your Nightmares",
+  "alternate_names": ["The Threshold of Dread", "Gateway to Darkness"],
+  "category": "General Horror",
+  "difficulty": "Beginner",
+  "quiz_number": 1,
+  "theme": "Introduction to Darkness",
+  "questions": [
+    {
+      "question": "Who directed the 1973 horror masterpiece 'The Exorcist'?",
+      "options": [
+        "William Friedkin",
+        "Roman Polanski",
+        "John Carpenter",
+        "Wes Craven"
+      ],
+      "correct": 0,
+      "is_profile": false
+    },
+    {
+      "question": "In which classic horror film does a hockey mask become the iconic disguise of the killer?",
+      "options": [
+        "Halloween",
+        "A Nightmare on Elm Street",
+        "Friday the 13th Part III",
+        "The Texas Chain Saw Massacre"
+      ],
+      "correct": 2,
+      "is_profile": false
+    },
+    {
+      "question": "What is the name of the possessed doll in 'The Conjuring' universe?",
+      "options": [
+        "Chucky",
+        "Annabelle",
+        "Billy",
+        "Mary Shaw"
+      ],
+      "correct": 1,
+      "is_profile": false
+    },
+    {
+      "question": "According to folklore, what creature transforms from human to beast under a full moon?",
+      "options": [
+        "Vampire",
+        "Zombie",
+        "Werewolf",
+        "Ghoul"
+      ],
+      "correct": 2,
+      "is_profile": false
+    },
+    {
+      "question": "Which horror author created the fictional town of Derry, Maine, setting for 'IT'?",
+      "options": [
+        "H.P. Lovecraft",
+        "Clive Barker",
+        "Stephen King",
+        "Dean Koontz"
+      ],
+      "correct": 2,
+      "is_profile": false
+    }
+  ],
+  "ai_message": "Welcome to the first chamber... let us measure your knowledge of darkness.",
+  "generated_by": "Horror Architect v2.0",
+  "timestamp": "2025-10-27T00:00:00Z"
+}
+

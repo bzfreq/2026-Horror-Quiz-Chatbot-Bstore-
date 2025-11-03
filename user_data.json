@@ -1,0 +1,301 @@
+{
+  "110052160046879199910": {
+    "myList": [],
+    "ratings": {},
+    "history": [],
+    "genre_searches": {
+      "psychological": 9,
+      "creature-features": 5,
+      "alien-horror": 1,
+      "haunted-houses": 4,
+      "vampires": 1,
+      "gore-fests": 3,
+      "supernatural": 1,
+      "cult-horror": 1
+    },
+    "horror_profile": "Mind Bender",
+    "horror_dna": {
+      "favorite_themes": [
+        "psychological"
+      ],
+      "fear_tolerance": 60.0,
+      "preferred_eras": [],
+      "personality_traits": [],
+      "quiz_history": [
+        {
+          "quiz_number": 1,
+          "score": 1,
+          "total": 5,
+          "theme": "Introduction to Darkness",
+          "answers": [
+            {
+              "question": "Which scene would terrify you more?",
+              "selected": "A shadowy figure appearing in the background of a dimly lit room.",
+              "correct": false,
+              "isProfile": false
+            },
+            {
+              "question": "What atmosphere draws you in?",
+              "selected": "An expansive, desolate landscape that feels isolating.",
+              "correct": false,
+              "isProfile": false
+            },
+            {
+              "question": "Which director's vision resonates with you?",
+              "selected": "Jordan Peele, who mixes social commentary with terror.",
+              "correct": false,
+              "isProfile": false
+            },
+            {
+              "question": "What kind of horror villain interests you?",
+              "selected": "A mysterious entity that manipulates reality and perception.",
+              "correct": false,
+              "isProfile": false
+            },
+            {
+              "question": "Which ending would haunt you longer?",
+              "selected": "An unsettling scene that suggests the horror is far from over.",
+              "correct": true,
+              "isProfile": true
+            }
+          ],
+          "timestamp": "2025-10-26T17:19:49.320335"
+        },
+        {
+          "quiz_number": 2,
+          "score": 2,
+          "total": 5,
+          "theme": "Visceral Horror",
+          "answers": [
+            {
+              "question": "In Hereditary, which scene evokes the most unsettling atmosphere through its use of lighting and sound design?",
+              "selected": "The attic reveal",
+              "correct": true,
+              "isProfile": false
+            },
+            {
+              "question": "Which horror film\u2019s score do you find most haunting and effective in creating tension?",
+              "selected": "Halloween",
+              "correct": true,
+              "isProfile": false
+            },
+            {
+              "question": "Which horror director\u2019s unique visual style captivates you the most?",
+              "selected": "Stanley Kubrick (The Shining)",
+              "correct": false,
+              "isProfile": true
+            },
+            {
+              "question": "In The Shining, which setting contributes most to the film's claustrophobic dread?",
+              "selected": "Room 237",
+              "correct": false,
+              "isProfile": false
+            },
+            {
+              "question": "Which horror movie's ending left you with a haunting sense of ambiguity that lingered?",
+              "selected": "The Cabin in the Woods",
+              "correct": false,
+              "isProfile": false
+            }
+          ],
+          "timestamp": "2025-10-26T22:16:00.733198"
+        },
+        {
+          "quiz_number": 3,
+          "score": 0,
+          "total": 5,
+          "theme": "Supernatural Dread",
+          "answers": [
+            {
+              "question": "In Hereditary, which scene masterfully captures the atmosphere of familial dread and impending tragedy?",
+              "selected": "The family dinner confrontation",
+              "correct": false,
+              "isProfile": false
+            },
+            {
+              "question": "Which horror movie's color palette and lighting choices creates the most unsettling mood?",
+              "selected": "Suspiria's vibrant and surreal hues",
+              "correct": false,
+              "isProfile": false
+            },
+            {
+              "question": "Which horror director's stylistic choices and thematic depth resonate with you?",
+              "selected": "Alfred Hitchcock",
+              "correct": false,
+              "isProfile": true
+            },
+            {
+              "question": "What kind of horror atmosphere intrigues you the most?",
+              "selected": "The surreal nightmare of Eraserhead",
+              "correct": false,
+              "isProfile": true
+            },
+            {
+              "question": "Which horror movie ending leaves the most lingering sense of unease?",
+              "selected": "The ambiguous fate in A Girl Walks Home Alone at Night",
+              "correct": false,
+              "isProfile": false
+            }
+          ],
+          "timestamp": "2025-10-26T22:16:31.216630"
+        },
+        {
+          "quiz_number": 4,
+          "score": 2,
+          "total": 5,
+          "theme": "Slasher Nightmares",
+          "answers": [
+            {
+              "question": "Which horror movie atmosphere sends chills down your spine the most?",
+              "selected": "The claustrophobic tension of 'The Witch'",
+              "correct": true,
+              "isProfile": false
+            },
+            {
+              "question": "In 'The Exorcist', which moment amplifies the theme of lost innocence?",
+              "selected": "Regan's first transformation",
+              "correct": false,
+              "isProfile": false
+            },
+            {
+              "question": "Which horror director's signature style resonates with you the most?",
+              "selected": "Alfred Hitchcock for his psychological thrills",
+              "correct": true,
+              "isProfile": true
+            },
+            {
+              "question": "What type of horror score chills you the most?",
+              "selected": "The haunting melodies of 'The Babadook'",
+              "correct": false,
+              "isProfile": false
+            },
+            {
+              "question": "Which horror movie ending would linger in your mind the longest?",
+              "selected": "The ambiguous finale of 'The Cabin in the Woods'",
+              "correct": false,
+              "isProfile": false
+            }
+          ],
+          "timestamp": "2025-10-26T22:20:47.627058"
+        },
+        {
+          "quiz_number": 5,
+          "score": 2,
+          "total": 5,
+          "theme": "Slasher Nightmares",
+          "answers": [
+            {
+              "question": "Which horror movie atmosphere sends chills down your spine the most?",
+              "selected": "The claustrophobic tension of 'The Witch'",
+              "correct": true,
+              "isProfile": false
+            },
+            {
+              "question": "In 'The Exorcist', which moment amplifies the theme of lost innocence?",
+              "selected": "Regan's first transformation",
+              "correct": false,
+              "isProfile": false
+            },
+            {
+              "question": "Which horror director's signature style resonates with you the most?",
+              "selected": "Alfred Hitchcock for his psychological thrills",
+              "correct": true,
+              "isProfile": true
+            },
+            {
+              "question": "What type of horror score chills you the most?",
+              "selected": "The haunting melodies of 'The Babadook'",
+              "correct": false,
+              "isProfile": false
+            },
+            {
+              "question": "Which horror movie ending would linger in your mind the longest?",
+              "selected": "The ambiguous finale of 'The Cabin in the Woods'",
+              "correct": false,
+              "isProfile": false
+            }
+          ],
+          "timestamp": "2025-10-26T22:20:47.837375"
+        },
+        {
+          "quiz_number": 6,
+          "score": 2,
+          "total": 5,
+          "theme": "Slasher Nightmares",
+          "answers": [
+            {
+              "question": "Which horror movie atmosphere sends chills down your spine the most?",
+              "selected": "The claustrophobic tension of 'The Witch'",
+              "correct": true,
+              "isProfile": false
+            },
+            {
+              "question": "In 'The Exorcist', which moment amplifies the theme of lost innocence?",
+              "selected": "Regan's first transformation",
+              "correct": false,
+              "isProfile": false
+            },
+            {
+              "question": "Which horror director's signature style resonates with you the most?",
+              "selected": "Alfred Hitchcock for his psychological thrills",
+              "correct": true,
+              "isProfile": true
+            },
+            {
+              "question": "What type of horror score chills you the most?",
+              "selected": "The haunting melodies of 'The Babadook'",
+              "correct": false,
+              "isProfile": false
+            },
+            {
+              "question": "Which horror movie ending would linger in your mind the longest?",
+              "selected": "The ambiguous finale of 'The Cabin in the Woods'",
+              "correct": false,
+              "isProfile": false
+            }
+          ],
+          "timestamp": "2025-10-26T22:20:48.518520"
+        },
+        {
+          "quiz_number": 7,
+          "score": 1,
+          "total": 5,
+          "theme": "Introduction to Darkness",
+          "answers": [
+            {
+              "question": "In Hereditary, which scene evokes a deeper sense of impending doom?",
+              "selected": "Annie discovering her mother's hidden secrets",
+              "correct": false,
+              "isProfile": false
+            },
+            {
+              "question": "Which horror movie atmosphere do you find most immersive?",
+              "selected": "The eerie suburban quietness of Halloween",
+              "correct": true,
+              "isProfile": false
+            },
+            {
+              "question": "Which horror director's style resonates with you the most?",
+              "selected": "Ari Aster for his unsettling visuals",
+              "correct": false,
+              "isProfile": false
+            },
+            {
+              "question": "What aspect of horror villains terrifies you the most?",
+              "selected": "A relentless force like Michael Myers in Halloween",
+              "correct": false,
+              "isProfile": false
+            },
+            {
+              "question": "Which horror movie ending would haunt you the longest?",
+              "selected": "The unsettling fate in Midsommar",
+              "correct": false,
+              "isProfile": true
+            }
+          ],
+          "timestamp": "2025-10-28T14:52:47.426555"
+        }
+      ]
+    }
+  }
+}

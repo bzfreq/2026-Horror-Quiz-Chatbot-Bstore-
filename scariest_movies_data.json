@@ -1,0 +1,155 @@
+{
+  "movies": [
+    {
+      "title": "The Exorcist",
+      "year": "1973",
+      "director": "William Friedkin",
+      "poster": "https://image.tmdb.org/t/p/w500/5x0CeVHJI8tcDx8tUUwYHQSNILq.jpg",
+      "rating": 8.1,
+      "trailer": "https://www.youtube.com/results?search_query=The+Exorcist+1973+trailer",
+      "description": "When a young girl is possessed by a mysterious entity, her mother seeks the help of two priests to save her.",
+      "tmdb_id": 539
+    },
+    {
+      "title": "The Shining",
+      "year": "1980",
+      "director": "Stanley Kubrick",
+      "poster": "https://image.tmdb.org/t/p/w500/xazWoLealQwEgqZ89MLZklLZD3k.jpg",
+      "rating": 8.4,
+      "trailer": "https://www.youtube.com/results?search_query=The+Shining+1980+trailer",
+      "description": "A family heads to an isolated hotel for the winter where a sinister presence influences the father into violence.",
+      "tmdb_id": 694
+    },
+    {
+      "title": "Hereditary",
+      "year": "2018",
+      "director": "Ari Aster",
+      "poster": "https://image.tmdb.org/t/p/w500/p7xCGSsNOTP8dtdRuFIJaYKFbAt.jpg",
+      "rating": 7.3,
+      "trailer": "https://www.youtube.com/results?search_query=Hereditary+2018+trailer",
+      "description": "A grieving family is haunted by tragic and disturbing occurrences after the death of their secretive grandmother.",
+      "tmdb_id": 493922
+    },
+    {
+      "title": "Sinister",
+      "year": "2012",
+      "director": "Scott Derrickson",
+      "poster": "https://image.tmdb.org/t/p/w500/c4H9JRqWPAJkBEJWFzPpmfKU1Oo.jpg",
+      "rating": 6.8,
+      "trailer": "https://www.youtube.com/results?search_query=Sinister+2012+trailer",
+      "description": "A true-crime writer discovers a cache of 8mm home movies films that suggest the murder he is currently researching is the work of a serial killer.",
+      "tmdb_id": 82507
+    },
+    {
+      "title": "The Conjuring",
+      "year": "2013",
+      "director": "James Wan",
+      "poster": "https://image.tmdb.org/t/p/w500/wVYREutTvI2tmxr6ujrHT704wGF.jpg",
+      "rating": 7.5,
+      "trailer": "https://www.youtube.com/results?search_query=The+Conjuring+2013+trailer",
+      "description": "Paranormal investigators Ed and Lorraine Warren work to help a family terrorized by a dark presence in their farmhouse.",
+      "tmdb_id": 138843
+    },
+    {
+      "title": "The Texas Chain Saw Massacre",
+      "year": "1974",
+      "director": "Tobe Hooper",
+      "poster": "https://image.tmdb.org/t/p/w500/ojqXSS0cDdL4LZZGzrF6b29eI27.jpg",
+      "rating": 7.5,
+      "trailer": "https://www.youtube.com/results?search_query=The+Texas+Chain+Saw+Massacre+1974+trailer",
+      "description": "Two siblings and three of their friends en route to visit their grandfather's grave in Texas fall victim to a family of cannibalistic psychopaths.",
+      "tmdb_id": 458
+    },
+    {
+      "title": "The Ring",
+      "year": "2002",
+      "director": "Gore Verbinski",
+      "poster": "https://image.tmdb.org/t/p/w500/oQXZ2gYgA7fFyJvS9YIHbKA8Kkh.jpg",
+      "rating": 7.1,
+      "trailer": "https://www.youtube.com/results?search_query=The+Ring+2002+trailer",
+      "description": "A journalist must investigate a mysterious videotape which seems to cause the death of anyone one week to the day after they view it.",
+      "tmdb_id": 565
+    },
+    {
+      "title": "It Follows",
+      "year": "2014",
+      "director": "David Robert Mitchell",
+      "poster": "https://image.tmdb.org/t/p/w500/aZJieqnMDRqRBNueIFPqXKL4fSe.jpg",
+      "rating": 6.8,
+      "trailer": "https://www.youtube.com/results?search_query=It+Follows+2014+trailer",
+      "description": "A young woman is followed by an unknown supernatural force after a sexual encounter.",
+      "tmdb_id": 291805
+    },
+    {
+      "title": "Alien",
+      "year": "1979",
+      "director": "Ridley Scott",
+      "poster": "https://image.tmdb.org/t/p/w500/vfrQk5IPloGg1v9Rzbh2Eg3VGyM.jpg",
+      "rating": 8.5,
+      "trailer": "https://www.youtube.com/results?search_query=Alien+1979+trailer",
+      "description": "The crew of a commercial spacecraft encounter a deadly lifeform after investigating an unknown transmission.",
+      "tmdb_id": 348
+    },
+    {
+      "title": "Halloween",
+      "year": "1978",
+      "director": "John Carpenter",
+      "poster": "https://image.tmdb.org/t/p/w500/wijlZ3HaYMvlDTPqJoTCWKFkCPU.jpg",
+      "rating": 7.7,
+      "trailer": "https://www.youtube.com/results?search_query=Halloween+1978+trailer",
+      "description": "Fifteen years after murdering his sister on Halloween night 1963, Michael Myers escapes from a mental hospital and returns to the small town to kill again.",
+      "tmdb_id": 948
+    },
+    {
+      "title": "The Blair Witch Project",
+      "year": "1999",
+      "director": "Eduardo Sánchez & Daniel Myrick",
+      "poster": "https://image.tmdb.org/t/p/w500/9WpWL0NKbpXCJcRdFpOeBJsOzZ9.jpg",
+      "rating": 6.4,
+      "trailer": "https://www.youtube.com/results?search_query=The+Blair+Witch+Project+1999+trailer",
+      "description": "Three film students vanish after traveling into a Maryland forest to film a documentary on the local Blair Witch legend.",
+      "tmdb_id": 1724
+    },
+    {
+      "title": "The Silence of the Lambs",
+      "year": "1991",
+      "director": "Jonathan Demme",
+      "poster": "https://image.tmdb.org/t/p/w500/uS9m8OBk1A8eM9I042bx8XXpqAq.jpg",
+      "rating": 8.3,
+      "trailer": "https://www.youtube.com/results?search_query=The+Silence+of+the+Lambs+1991+trailer",
+      "description": "A young FBI cadet must receive the help of an incarcerated and manipulative cannibal killer to help catch another serial killer.",
+      "tmdb_id": 11
+    },
+    {
+      "title": "A Nightmare on Elm Street",
+      "year": "1984",
+      "director": "Wes Craven",
+      "poster": "https://image.tmdb.org/t/p/w500/3vNfRAYBEGBYVfUnSQ0WHfgynXt.jpg",
+      "rating": 7.7,
+      "trailer": "https://www.youtube.com/results?search_query=A+Nightmare+on+Elm+Street+1984+trailer",
+      "description": "Teenagers in a small town are being murdered in their dreams by a disfigured killer with a glove of razors.",
+      "tmdb_id": 510
+    },
+    {
+      "title": "28 Days Later",
+      "year": "2002",
+      "director": "Danny Boyle",
+      "poster": "https://image.tmdb.org/t/p/w500/aDC1NfXSH6nPTYnBfxWKxBdMCjN.jpg",
+      "rating": 7.3,
+      "trailer": "https://www.youtube.com/results?search_query=28+Days+Later+2002+trailer",
+      "description": "Four weeks after a mysterious, incurable virus spreads throughout the UK, a handful of survivors try to find sanctuary.",
+      "tmdb_id": 1271
+    },
+    {
+      "title": "The Descent",
+      "year": "2005",
+      "director": "Neil Marshall",
+      "poster": "https://image.tmdb.org/t/p/w500/yC2ZcgQK81EiSWWS8tOIP2l87pP.jpg",
+      "rating": 7.2,
+      "trailer": "https://www.youtube.com/results?search_query=The+Descent+2005+trailer",
+      "description": "A group of women explore a cave system. When they become trapped, they discover that the cave is inhabited by terrifying creatures.",
+      "tmdb_id": 8077
+    }
+  ]
+}
+

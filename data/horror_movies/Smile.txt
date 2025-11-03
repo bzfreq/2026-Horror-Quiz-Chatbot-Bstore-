@@ -1,0 +1,8 @@
+Title: Smile
+Year: 2022
+Director: Parker Finn
+Genre: Horror, Mystery, Thriller
+IMDB_Rating: 6.5
+
+Plot Summary:
+After witnessing a bizarre, traumatic incident involving a patient, a psychiatrist becomes increasingly convinced she is being threatened by an uncanny entity.

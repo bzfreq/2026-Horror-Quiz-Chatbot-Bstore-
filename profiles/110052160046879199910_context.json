@@ -1,0 +1,40 @@
+{
+  "entities": [
+    {
+      "kind": "movie",
+      "value": "A Nightmare on Elm Street"
+    },
+    {
+      "kind": "killer",
+      "value": "Freddy Krueger"
+    },
+    {
+      "kind": "movie",
+      "value": "A Nightmare on Elm Street"
+    },
+    {
+      "kind": "movie",
+      "value": "A Nightmare on Elm Street"
+    },
+    {
+      "kind": "killer",
+      "value": "Freddy Krueger"
+    },
+    {
+      "kind": "movie",
+      "value": "A Nightmare on Elm Street"
+    },
+    {
+      "kind": "movie",
+      "value": "Psycho"
+    },
+    {
+      "kind": "movie",
+      "value": "A Nightmare on Elm Street"
+    }
+  ],
+  "last_movie": "A Nightmare on Elm Street",
+  "last_character": null,
+  "last_killer": "Freddy Krueger",
+  "last_time_ref": null
+}

@@ -1,0 +1,8 @@
+Title: Psycho
+Year: 1960
+Director: Alfred Hitchcock
+Genre: Drama, Horror, Mystery
+IMDB_Rating: 8.5
+
+Plot Summary:
+A secretary on the run for embezzlement takes refuge at a secluded California motel owned by a repressed man and his overbearing mother.

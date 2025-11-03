@@ -1,0 +1,8 @@
+Title: Evil Dead
+Year: 2013
+Director: Fede Alvarez
+Genre: Horror
+IMDB_Rating: 6.5
+
+Plot Summary:
+Five friends head to a remote cabin, where the discovery of a Book of the Dead leads them to unwittingly summon up demons living in the nearby woods.

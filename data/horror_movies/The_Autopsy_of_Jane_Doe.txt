@@ -1,0 +1,8 @@
+Title: The Autopsy of Jane Doe
+Year: 2016
+Director: André Øvredal
+Genre: Horror, Mystery, Thriller
+IMDB_Rating: 6.8
+
+Plot Summary:
+Father and son coroners investigate the death of a beautiful Jane Doe.

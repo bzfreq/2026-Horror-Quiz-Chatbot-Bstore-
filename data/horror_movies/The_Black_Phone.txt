@@ -1,0 +1,8 @@
+Title: The Black Phone
+Year: 2021
+Director: Scott Derrickson
+Genre: Horror, Mystery, Thriller
+IMDB_Rating: 6.9
+
+Plot Summary:
+After being abducted and locked in a basement, a boy starts receiving calls on a disconnected phone from the killer's previous victims.

@@ -1,0 +1,8 @@
+Title: X
+Year: 2022
+Director: Ti West
+Genre: Horror, Mystery, Thriller
+IMDB_Rating: 6.5
+
+Plot Summary:
+In 1979, a group of young filmmakers set out to make an adult film in a rural Texas farm, but when their reclusive, elderly hosts catch them in the act, the crew find themselves fighting for their lives.

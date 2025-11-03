@@ -1,0 +1,8 @@
+Title: The Shining
+Year: 1980
+Director: Stanley Kubrick
+Genre: Drama, Horror
+IMDB_Rating: 8.4
+
+Plot Summary:
+A family heads to an isolated hotel for the winter, where a sinister presence influences the father into violence. At the same time, his psychic son sees horrifying forebodings from both the past and the future.

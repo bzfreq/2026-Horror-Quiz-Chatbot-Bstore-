@@ -1,0 +1,8 @@
+Title: Rosemary's Baby
+Year: 1968
+Director: Roman Polanski
+Genre: Drama, Horror
+IMDB_Rating: 8.0
+
+Plot Summary:
+A young couple trying for a baby moves into an aging, ornate apartment building on Central Park West, where they find themselves surrounded by peculiar neighbors.

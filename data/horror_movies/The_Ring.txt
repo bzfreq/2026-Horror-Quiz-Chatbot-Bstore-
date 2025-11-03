@@ -1,0 +1,8 @@
+Title: The Ring
+Year: 2002
+Director: Gore Verbinski
+Genre: Horror, Mystery
+IMDB_Rating: 7.1
+
+Plot Summary:
+A journalist must investigate a mysterious videotape which seems to cause the death of anyone one week to the day after they view it.

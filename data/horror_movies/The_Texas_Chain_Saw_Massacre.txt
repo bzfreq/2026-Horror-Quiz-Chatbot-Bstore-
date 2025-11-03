@@ -1,0 +1,8 @@
+Title: The Texas Chain Saw Massacre
+Year: 1974
+Director: Tobe Hooper
+Genre: Horror
+IMDB_Rating: 7.4
+
+Plot Summary:
+Five friends head out to rural Texas to visit the grave of a grandfather. On the way they stumble across what appears to be a deserted house, only to discover something sinister within. Something armed with a chainsaw.

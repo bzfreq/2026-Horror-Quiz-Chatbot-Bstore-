@@ -1,0 +1,8 @@
+Title: The Visit
+Year: 2015
+Director: M. Night Shyamalan
+Genre: Horror, Mystery, Thriller
+IMDB_Rating: 6.3
+
+Plot Summary:
+Two siblings become increasingly frightened by their grandparents' disturbing behavior while visiting them on vacation.
