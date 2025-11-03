@@ -2393,55 +2393,102 @@
       }
     }
 
-    /* TITLE BAR - Side-by-side layout for logo and button */
+    /* One-line header control */
     #title-bar {
       display: flex;
       justify-content: center;
-      align-items: center;
-      gap: 20px;
-      text-align: center;
-      position: relative;
-      margin-top: 20px;
+      align-items: baseline;
+      flex-wrap: nowrap;
+      gap: 18px;
+      overflow: hidden;
+      white-space: nowrap;
+      margin: 12px 0 8px 0;
     }
 
     /* MAIN LOGO - Horror Oracle */
+    .main-title,
     #main-logo {
-      font-family: "Creepster", sans-serif;
-      color: #ff0000;
-      font-size: 64px;
-      letter-spacing: 4px;
-      text-shadow: 0 0 20px #ff0000, 0 0 40px #a00000;
+      font-family: "Creepster", system-ui, sans-serif;
+      color: #e31717;
+      font-size: clamp(34px, 4.8vw, 70px);
+      letter-spacing: 0.05em;
+      text-shadow:
+        0 0 10px #7a0000,
+        0 0 28px #2a0000,
+        0 0 6px #ff1a1a40;
       margin: 0;
+      line-height: 1;
+      white-space: nowrap;
     }
 
-    /* NIGHTMARE BUTTON - Glowing red neon styling */
+    /* 🔥 Top Header Banner — Sharpened Horror Glow */
     #nightmare-button {
-      font-family: "Nosifer", cursive;
-      color: #ff2222;
-      font-size: 28px;
-      text-decoration: none;
-      text-shadow: 0 0 15px #ff0000, 0 0 25px #660000;
-      letter-spacing: 2px;
-      padding: 10px 20px;
-      border: 2px solid #990000;
-      border-radius: 8px;
-      background: radial-gradient(circle, #220000 0%, #000000 90%);
-      transition: all 0.3s ease-in-out;
+      font-family: "Creepster", system-ui, sans-serif;
+      font-size: clamp(20px, 2.5vw, 38px);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      background: none;
+      color: #ff1a1a;
+      text-shadow:
+        0 0 4px #ff0000,
+        0 0 10px #d00000,
+        0 0 16px #770000,
+        0 0 28px #ff222240;
+      border: 1px solid rgba(255, 0, 0, 0.4);
+      border-radius: 6px;
+      padding: 6px 14px;
+      margin: 0;
+      display: inline-block;
+      box-shadow: 0 0 15px #2a0000 inset, 0 0 18px #ff000033;
+      transition: all 0.25s ease-in-out;
+      white-space: nowrap;
       cursor: pointer;
+      text-decoration: none;
     }
 
     #nightmare-button:hover {
-      color: #fff;
-      text-shadow: 0 0 25px #ff4444, 0 0 60px #ff0000;
-      transform: scale(1.05);
-      border-color: #ff0000;
+      color: #ff4444;
+      text-shadow:
+        0 0 6px #ff4d4d,
+        0 0 18px #880000,
+        0 0 2px #ffffff60;
     }
 
-    #nightmare-button:active {
-      transform: scale(0.98);
-      filter: brightness(1.4);
+    /* 🩸 Secondary "WELCOME TO YOUR NIGHTMARE QUIZ" Title Above Image */
+    .quiz-banner {
+      text-align: center;
+      font-family: "Creepster", system-ui, sans-serif;
+      font-size: clamp(32px, 4vw, 56px);
+      font-weight: 700;
+      color: #ff2e2e;
+      text-transform: uppercase;
+      text-shadow:
+        0 0 4px #ff0000,
+        0 0 10px #7a0000,
+        0 0 22px #2a0000;
+      margin-top: 30px;
+      margin-bottom: 12px;
     }
 
+    /* Ensures spacing without breaking layout */
+    .quiz-banner + img,
+    .quiz-banner + .quiz-image {
+      margin-top: 8px;
+    }
+
+    /* Responsive safety (no wrapping, no push-down) */
+    @media (max-width: 980px) {
+      #title-bar { gap: 10px; }
+    }
+    @media (max-width: 720px) {
+      #title-bar { gap: 6px; }
+    }
+
+    /* Prevent any layout spill */
+    #title-bar * {
+      white-space: nowrap !important;
+      flex: 0 1 auto;
+    }
 
     /* NIGHTMARE QUIZ HERO SECTION WITH HORROR GRAPHICS */
     .nightmare-quiz-hero-section {
@@ -3776,6 +3823,7 @@
                 </div>
 
                 <!-- Main Hero Horror Image -->
+                <div class="quiz-banner">Welcome to Your Nightmare Quiz</div>
                 <div id="initial-horror-image" class="flex flex-col items-center justify-center my-6 px-4">
                     <img src="horror.jpg" alt="Horror" class="rounded-lg border-2 border-red-700 shadow-lg" style="max-width: 600px; width: 100%; max-height: 500px; height: auto; object-fit: contain;">
                 </div>
